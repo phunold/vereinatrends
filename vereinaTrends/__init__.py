@@ -30,10 +30,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     kl_resultSet = soup.select(klostersSelector)
     sa_resultSet = soup.select(sagliainsSelector)
 
-    logging.info(kl_resultSet)
-    logging.info(type(kl_resultSet))
-    logging.info(len(kl_resultSet))
-
     if len(kl_resultSet) != 1 or len(sa_resultSet) != 1:
         return func.HttpResponse(f"Failed to scrape wait times, html/selector may have changed.",
                                  status_code=404
